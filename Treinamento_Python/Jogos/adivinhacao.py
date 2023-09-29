@@ -9,7 +9,7 @@ while numero_tentativas > 0:
     if(numero_tentativas == 1):
         print("\nEssa é a sua última tentativa. Pense bem!")
     else:
-        print("\nVocê tem ", numero_tentativas, "tentativas restantes")
+        print("\nVocê tem {} tentativas restantes".format(numero_tentativas))
 
     palpite = int(input("Digite um palpite: "))
     acertou = palpite == numero_oculto
