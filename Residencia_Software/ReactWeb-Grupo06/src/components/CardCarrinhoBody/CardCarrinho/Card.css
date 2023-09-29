@@ -1,0 +1,52 @@
+.carrinho-card {
+    height: 8rem;
+    border-radius: 8px;
+    border: 1px solid #c3c3c3;
+    box-shadow: 0 2px 7px 0 rgba(0, 0, 0, 0.15);
+    padding: 15px;
+    display: flex;
+  }
+  
+  .carrinho-card__image {
+    width: 150px;
+    margin-right: 10px;
+    margin-left: 2%;
+  }
+  
+  .carrinho-card__info {
+    display: flex;
+    align-items: center;
+    margin-left: 1%;
+  }
+  
+  .carrinho-card__title {
+    width: 300px;
+    font-family: sans-serif;
+  }
+
+  .carrinho-card__descricao{
+    width: 450px;
+    font-family: sans-serif;
+    color: gray;
+  }
+  
+  .carrinho-card__price {
+    width: 200px;
+    font-family: sans-serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: #3498db;
+  }
+
+  .carrinho-card__delete-button {
+    width: 100px;
+    border: unset;
+    background-color: unset;
+    font-size: 25px;
+  }
+
+  .linkTo{
+    color: red;
+    cursor: pointer;
+  }
+  

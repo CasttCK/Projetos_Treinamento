@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surpresinha</title>
+    <style>
+        body,
+        select,
+        button {
+            font-family: "Verdana", sans-serif;
+            text-align: center;
+            font-size: 1.2rem;
+        }
+        .container {
+            width: 50%;
+            margin: 0 auto;
+        }
+        table{
+            margin: auto;
+            margin-bottom: 1rem;
+            border: 1px solid #333;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container" id="display">
+        <h1>Surpresinha</h1>
+        <p>Desenvolva um script capaz de gerar uma sequência de números sorteados
+            para os principais jogos da loteria esportiva. O Usuário escolhe o jogo
+            e o sistema imprime os números aleatórios. Obs: Não pode gerar números
+            repetidos e devem ser impressos em ordem crescente. Pesquise por 
+            ordenação de array com sort()
+        </p>
+        <table>
+            <tr>
+                <th>Jogo</th>
+                <th>Min</th>
+                <th>Max</th>
+                <th>Aposta</th>
+            </tr>
+            <tr>
+                <td>Quina</td>
+                <td>1</td>
+                <td>80</td>
+                <td>5</td>
+            </tr>
+            <tr>
+                <td>Mega Sena</td>
+                <td>1</td>
+                <td>60</td>
+                <td>6</td>
+            </tr>
+            <tr>
+                <td>Lotofácil</td>
+                <td>1</td>
+                <td>25</td>
+                <td>15</td>
+            </tr>
+        </table>
+        <label for="jogos">Escolha o Jogo</label>
+        <select name="jogos" id="jogos">
+            <option value="megasena">Mega-Sena</option>
+            <option value="lotofacil">Lotofácil</option>
+            <option value="quina">Quina</option>
+        </select>
+        <button>Gerar Jogo</button>
+        <h4 id="resultado"></h4>
+    </div>
+    <script src="./surpresinha.js"></script>
+</body>
+
+</html>

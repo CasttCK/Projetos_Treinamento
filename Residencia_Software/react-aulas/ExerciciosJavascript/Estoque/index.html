@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estoque</title>
+    <style>
+        body,
+        select,
+        button {
+            font-family: "Verdana", sans-serif;
+            text-align: center;
+            font-size: 1.2rem;            
+        }
+        .container {
+            width: 50%;
+            margin: 0 auto;
+        }
+        table{
+            margin: auto;
+            margin-bottom: 1rem;
+            border: 1px solid #333;
+        }
+        div{
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container" id="display">
+        <h1>Controle de estoque</h1>
+        <p>Construa um script capaz de obter:</p> 
+        <ul>
+            <li>Valor total dos produtos em estoque</li>
+            <li>Quantidade total dos produtos em estoque</li>
+            <li>Campo de pesquisa capaz de obter as informações do produto pesquisado</li>
+        </ul>
+        <div>
+            <label>
+                <input type="text" nome="pesquisa" id="pesquisa">
+                <button>Pesquisar produto</button>
+            </label>        
+            <button>Obter Valor total</button>
+            <button>Obter Quantidade total</button>
+        </div>
+        <h4 id="resultado"></h4>
+    </div>
+    <script src="./estoque.js"></script>
+</body>
+
+</html>

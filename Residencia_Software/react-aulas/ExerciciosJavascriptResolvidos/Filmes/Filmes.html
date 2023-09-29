@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filmes</title>
+    <style>
+        body,
+        select,
+        button {
+            font-family: "Verdana", sans-serif;
+            text-align: center;
+            font-size: 1.2rem;
+        }
+        .container {
+            width: 70%;
+            margin: 0 auto;
+        }
+        table{
+            margin: auto;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+            border: 1px solid #333;
+            padding: 0.5rem;
+        }
+        th, td{
+            padding: 0.5rem;   
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container" id="display">
+        <h1>Filmes</h1>
+        <p>Novos títulos estão disponíveis no serraflix e você é responsável por listar de forma ordenada os novos títulos para os usuários. Cada filme deve ser ordenado de acordo com sua categoria e duração. Desenvolva um algoritmo que seja capaz de gerar uma lista ou tabela para cada categoria. Em cada lista os filmes devem ser ordenados em ordem crescente de duração.
+        Podem ser utilizados: filter, reduce, map, array.sort.
+        </p>
+        <ul>
+            <li>Identificar as categorias existentes na lista</li>
+            <li>Filtrar titulo por categoria</li>
+            <li>Ordenar por duração</li>
+            <li>Gerar visualização Manipulando DOM ou Console</li>
+        </ul>
+        <button onclick="gerarLista()">Gerar Tabelas de Filmes</button>        
+        
+    </div>
+    <script src="./script.js"></script>
+</body>
+
+</html>
