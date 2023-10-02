@@ -1,15 +1,18 @@
+import random
+
 print("*****************************")
 print("Este é um jogo de adivinhação")
 print("*****************************")
 
-numero_oculto = 35
+numero_oculto = random.randrange(1, 101)
 numero_tentativas = 5
+tentativas_restantes = 5
 
-for rodada in numero_tentativas + 1:
-    if(numero_tentativas == 1):
+for rodada in range(numero_tentativas):
+    if(tentativas_restantes == 1):
         print("\nEssa é a sua última tentativa. Pense bem!")
     else:
-        print("\nVocê tem {} tentativas restantes".format(numero_tentativas))
+        print("\nVocê tem {} tentativas restantes".format(tentativas_restantes))
 
     palpite = int(input("Digite um número entre 1 e 100: "))
     acertou = palpite == numero_oculto
@@ -29,6 +32,8 @@ for rodada in numero_tentativas + 1:
             print("O número escolhido é maior do que o segredo!")
         elif(menor):
             print("O número escolhido é menor do que o segredo!")
+
+    tentativas_restantes -= 1
 
 print("Fim de jogo!")
 
