@@ -4,9 +4,31 @@ print("*****************************")
 print("Este é um jogo de adivinhação")
 print("*****************************")
 
-numero_oculto = random.randrange(1, 101)
+while True:
+    try:
+        print("Escolha um nível de dificuldade")
+        dificuldade = int(input("(1) - Fácil \n(2) - Médio \n(3) - Difícil\n"))
+        break
+    except ValueError:
+        print("Você digitou um valor errado.\nEscolha uma opção\n")
+
+numero_oculto = 0
 numero_tentativas = 5
 tentativas_restantes = 5
+quantidade_numeros = 0
+
+match(dificuldade):
+    case 1:
+        quantidade_numeros = 10
+        numero_oculto = random.randrange(1, 11)
+    case 2:
+        quantidade_numeros = 50
+        numero_oculto = random.randrange(1, 51)
+    case 3:
+        quantidade_numeros = 100
+        numero_oculto = random.randrange(1, 101)
+
+print(numero_oculto)
 
 for rodada in range(numero_tentativas):
     if(tentativas_restantes == 1):
@@ -14,7 +36,7 @@ for rodada in range(numero_tentativas):
     else:
         print("\nVocê tem {} tentativas restantes".format(tentativas_restantes))
 
-    palpite = int(input("Digite um número entre 1 e 100: "))
+    palpite = int(input("Digite um número entre 1 e {}: ".format(quantidade_numeros)))
     acertou = palpite == numero_oculto
     maior = palpite > numero_oculto
     menor = palpite < numero_oculto
