@@ -4,8 +4,20 @@ from flask import (
     request,
     redirect,
     session,
-    flash
+    flash,
+    url_for
 )
+
+class Usuario:
+    def __init__(self, nome, nickname, senha):
+        self.nome = nome
+        self.nickname = nickname
+        self.senha = senha
+
+usuario1 = Usuario('Usuario TI', 'UserTI', '1234')
+usuario2 = Usuario('Vinicius Kronemberger', 'CasttCK', 'Castt')
+usuarios = { usuario1.nickname : usuario1,
+             usuario2.nickname : usuario2 }
 
 class Jogo:
     def __init__(self, nome, categoria, console):
@@ -32,27 +44,33 @@ def login():
 
 @app.route('/autenticar', methods=['POST'])
 def autenticar_usuario():
-    if(request.form['usuario'] == 'UserTI' and request.form['senha'] == '1234'):
-        session['usuario_logado'] = request.form['usuario']
-        flash(session['usuario_logado'] + ' logado com sucesso!')
-        proxima_pagina = request.form['proxima']
-        return redirect('/{}'.format(proxima_pagina))
+    if(request.form['usuario'] in usuarios):
+        usuario = usuarios[request.form['usuario']]
+        if(request.form['senha'] == usuario.senha):
+            session['usuario_logado'] = usuario.nickname
+            flash(usuario.nome + ' logado com sucesso!')
+            proxima_pagina = request.form['proxima']
+            if proxima_pagina != 'None':
+                return redirect(proxima_pagina)
+
+            return redirect(url_for('novo_jogo'))
+
     else:
         flash('Usuário não logado!')
-        return redirect('/login')
+        return redirect(url_for('login'))
 
 @app.route('/logout')
 def logout():
     session['usuario_logado'] = None
     flash('Logout feito com sucesso!')
-    return redirect('/login')
+    return redirect(url_for('login'))
 
 @app.route('/novo')
 def novo_jogo():
     if('usuario_logado' not in session or session['usuario_logado'] == None):
-        return redirect('/login?proxima=novo')
+        return redirect(url_for('login', proxima=url_for('novo_jogo')))
 
-    return render_template('novo_jogo.html', titulo = 'Novo jogo')
+    return render_template('novo_jogo.html', titulo='Novo jogo')
 
 @app.route('/criar', methods=['POST',])
 def criar_novo_jogo():
@@ -63,6 +81,6 @@ def criar_novo_jogo():
     novo_jogo = Jogo(nome, categoria, console)
     jogos.append(novo_jogo)
 
-    return redirect('/')
+    return redirect(url_for('index'))
 
 app.run(debug=True)
